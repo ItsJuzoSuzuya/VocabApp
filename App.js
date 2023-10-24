@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import LanguageBody from './CustomComponents/LanguageBody';
+import ProfileBody from './CustomComponents/ProfileBody';
+import TopicBody from './CustomComponents/TopicBody';
+import WordBody from './CustomComponents/WordBody';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+const Stack = createNativeStackNavigator();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const App = () => {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen name='LanguagePage' component={LanguageBody} options={{ headerShown: false }} />
+                <Stack.Screen name='TopicPage' component={TopicBody} options={{ headerShown: false }} />
+                <Stack.Screen name='ProfilePage' component={ProfileBody} options={{ headerShown: false }} />
+                <Stack.Screen name='WordPage' component={WordBody} options={{ headerShown: false }} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
+};
+
+export default App;
