@@ -36,12 +36,12 @@ const TopicBody = ({navigation, route}) => {
     };
 
     const TopicButton = ({ topic }) => {
-        const navigateToWordPage = () => {
-            navigation.navigate("WordPage", {currentLanguage: currentLanguage, currentTopic: topic });
+        const navigateToModePage = () => {
+            navigation.navigate("ChooseModePage", {currentLanguage: currentLanguage, currentTopic: topic });
         };
 
         return(
-            <Pressable style={bodyStyles.addButton} onPress={navigateToWordPage}>
+            <Pressable style={bodyStyles.addButton} onPress={navigateToModePage}>
                 <Text> {topic} </Text>
             </Pressable>
         )
